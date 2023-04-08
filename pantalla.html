@@ -1,0 +1,30 @@
+<canvas width="600" height="400"></canvas>
+<script>
+    var pantalla = document.querySelector("canvas"); //el query ahce conexion de javascript con etiquetas de html
+    var pincel = pantalla.getContext("2d"); //vamos a crear un pincel
+    
+    pincel.fillStyle = "lightgrey"; //propiedad 
+    pincel.fillRect(0,0,600,400); //rellena un rectángulo mediante el pincel especificado 
+
+    function escribirAlerta(evento){
+        var x = evento.pageX - pantalla.offsetLeft; // lo que hara en esta parte es señalar la ubicacion del punto x y con el -pantalla reduce el espacio sobrante
+        var y = evento.pageY - pantalla.offsetTop;
+        console.log(evento);
+        alert(x + "," + y);  //muestra las coordenadas de y
+    }
+
+    function dibujarCirculo(evento){
+        var x = evento.pageX - pantalla.offsetLeft; // lo que hara en esta parte es señalar la ubicacion del punto x y con el -pantalla reduce el espacio sobrante
+        var y = evento.pageY - pantalla.offsetTop;  //capturamos las coordenadas
+       
+        pincel.fillStyle= "blue";
+        pincel.beginPath(); //iniciamos el camino o la direccion 
+        pincel.arc(x,y,10,0,2*3.14); //cordenadas (x,y) radio(10) angulo inicial (0) angulo final (2*3.14)
+        pincel.fill(); //para que aparezca
+        console.log(x + "," + y);
+    }
+    
+    //pantalla.onclick = escribirAlerta;
+    pantalla.onclick = dibujarCirculo;
+
+</script>

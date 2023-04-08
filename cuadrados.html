@@ -1,0 +1,20 @@
+<canvas width="600" height="400"></canvas>
+<script>
+    function dibujarCuadrado(x,y,color){
+    
+    var pantalla = document.querySelector("canvas"); //el query ahce conexion de javascript con etiquetas de html
+    var pincel = pantalla.getContext("2d"); //vamos a crear un pincel    
+
+    pincel.fillStyle = color; //propiedad 
+    pincel.fillRect(x,y,50,50); //x,y son posiciones globales arriba abajo 
+    pincel.strokeStyle ="black";   //esto hace un contorno al cuadrado 
+    pincel.strokeRect(x,y,50,50);
+    } 
+    var x = 0;  //siempre que usamos el while debemos de declarar una variable a 0
+    while(x<600){  //en este caso como el tamaño del canva es 600 vamos a imprimir menor a 600
+    dibujarCuadrado(x,0,"red");  // como vamos a usar 3 lineas verticales los ponemos en el lado de la y
+    dibujarCuadrado(x,50,"yellow");  //x = horizontal y Y es vertical (x,y,color)
+    dibujarCuadrado(x,100,"green"); 
+    x = x + 50;   //el contador lo vamos a incrementar de 50 en 50 para que sean el mismo tamaño de cuadrados
+    }
+    </script>
